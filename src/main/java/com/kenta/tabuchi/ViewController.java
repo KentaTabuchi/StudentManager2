@@ -26,7 +26,7 @@ public class ViewController {
 	//|---------------------------------------------------------------------------------------
 		
 	
-	@GetMapping
+	@GetMapping("/")
 	public ModelAndView index_get(ModelAndView view) 
 	{
 		view.addObject("recordSet", repository.findAll());
@@ -64,17 +64,28 @@ public class ViewController {
 	@PostMapping("/add_record")
 	public ModelAndView add_record_post
 	(@ModelAttribute("formModel") @Validated Student student,BindingResult result,ModelAndView view) 
-	{
-		
+	{	
 		if(!result.hasErrors()) {
 			repository.saveAndFlush(student);
-			view = new ModelAndView("redirect:/");
+			return new ModelAndView("redirect:/");
 		}else {
 			view.setViewName("add_record");
-		}
-		return view;
+			return view;
+		}	
 	}
-	
+	@PostMapping("/edit_record")
+	public ModelAndView edit_record_post
+	(@ModelAttribute("formModel")@Validated Student student,BindingResult result,ModelAndView view)
+	{
+		if(!result.hasErrors()) {
+		repository.saveAndFlush(student);
+		return new ModelAndView("redirect:/");
+		}else {
+			view.setViewName("edit_record");
+			return view;
+		}
+		
+	}
 	@PostMapping("/delete_record")
 	public ModelAndView delete_record_post
 	(@RequestParam("id")Long id) 
@@ -82,5 +93,7 @@ public class ViewController {
 		repository.deleteById(id);
 		return new ModelAndView("redirect:/");
 	}
+	
+
 	
 }

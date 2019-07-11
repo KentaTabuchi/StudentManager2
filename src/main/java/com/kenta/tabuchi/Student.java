@@ -25,7 +25,7 @@ public class Student {
 	@Column
 	private String namePhonetic;
 	@Column
-	@Pattern(regexp="....[/]..[/]..")
+	@Pattern(regexp="....[-]..[-]..")
 	private String birthday;
 	@Column
 	@Pattern(regexp="...?.?[-]....?[-]....?")

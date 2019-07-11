@@ -69,7 +69,7 @@
 }
 
 .list-table__table-data {
-	text-align: center;
+	
 	border-left: 1px solid #a8b7c5;
 	border-bottom: 1px solid #a8b7c5;
 	border-top: none;
@@ -93,30 +93,37 @@
 
 .list-table__table tr th:nth-child(1) {
 	width: 70px; /*id column*/
+	text-align:center;
 }
 
 .list-table__table tr th:nth-child(2) {
 	width: 150px; /*name column*/
+	text-align:center;
 }
 
 .list-table__table tr th:nth-child(3) {
 	width: 120px; /*birthday column*/
+	text-align:center;
 }
 
 .list-table__table tr th:nth-child(4) {
 	width: 200px; /*phone column*/
+	text-align:center;
 }
 
 .list-table__table tr th:nth-child(5) {
 	width: 250px; /*email column*/
+	text-align:left;
 }
 
 .list-table__table tr th:nth-child(6) {
 	width: 300px; /*address column*/
+	text-align:left;
 }
 
 .list-table__table tr th:nth-child(7) {
 	width: 70px; /*graduation column*/
+	text-align:center;
 }
 
 .list-table__table tr:nth-child(even) {
