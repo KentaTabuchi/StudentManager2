@@ -31,14 +31,10 @@ public class ViewController {
 		view.setViewName("delete_record");
 		return view;
 	}
-//	@RequestMapping(value="/delete_record",method=RequestMethod.GET)
-//	public ModelAndView deleteRecord(
-//			ModelAndView mav) {
-//		mav.setViewName("delete_record");
-//		M_StudentDao dao = new M_StudentDao(jdbc);
-//		Iterable<Student> list = dao.findAll();
-//		mav.addObject("recordSet", list);
-//		return mav;
-//	}
+	@GetMapping("edit_record")
+	public ModelAndView edit_record_get(@ModelAttribute("formModel")Student student,ModelAndView view) {
+		view.setViewName("edit_record");
+		return view;
+	}
 
 }
