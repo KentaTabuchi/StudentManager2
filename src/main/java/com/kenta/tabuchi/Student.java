@@ -2,6 +2,8 @@ package com.kenta.tabuchi;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
@@ -13,6 +15,7 @@ import org.hibernate.validator.constraints.Range;
 @Entity
 @Table(name="student")
 public class Student {
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column
 	private Long id;
