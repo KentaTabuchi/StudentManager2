@@ -8,37 +8,38 @@
 
 <body  class="container__body">
 
-	<h1 class="container__heading-1">一覧</h1>
+	<h1>生徒管理</h1>
 	<input type="button" onclick="location.href='/add_record'" value="新規追加" class="btn btn-outline-primary">
-
+	
 	<form>
-		<table class="table table-striped">
+		<div class="card">
+		<div class="card-header">生徒一覧</div>
+		<table class="table table-striped table-hover table-sm">
 			<tr>
-				<th class="list-table__table-head">生徒番号</th>
-				<th class="list-table__table-head">名前</th>
-				<th class="list-table__table-head">誕生日</th>
-				<th class="list-table__table-head">電話番号</th>
-				<th class="list-table__table-head">E-mail</th>
-				<th class="list-table__table-head">住所</th>
-				<th class="list-table__table-head">卒業年</th>
-				<th class="list-table__table-head">     </th>
-				<th class="list-table__table-head">     </th>
+				<th>生徒番号</th>
+				<th>名前</th>
+				<th>誕生日</th>
+				<th>電話番号</th>
+				<th>E-mail</th>
+				<th>住所</th>
+				<th>卒業年</th>
+				<th>     </th>
+				<th>     </th>
 				
 			</tr>
 			<tr th:each="record:${recordSet}">
-				<td class="list-table__table-data">[[${record.id}]]</td>
-				<td class="list-table__table-data">[[${record.name}]]</td>
-				<td class="list-table__table-data">[[${record.birthday}]]</td>
-				<td class="list-table__table-data">[[${record.phone}]]</td>
-				<td class="list-table__table-data">[[${record.email}]]</td>
-				<td class="list-table__table-data">[[${record.address}]]</td>
-				<td class="list-table__table-data">[[${record.graduation}]]</td>
-				
-			 	<td class="list-table__table-data"><a th:href="@{'edit_record/'+${record.id}}">編集</a></td>
-			 	<td class="list-table__table-data"><a th:href="@{'delete_record/'+${record.id}}">削除</a></td>
-
+				<td>[[${record.id}]]</td>
+				<td>[[${record.name}]]</td>
+				<td>[[${record.birthday}]]</td>
+				<td>[[${record.phone}]]</td>
+				<td>[[${record.email}]]</td>
+				<td>[[${record.address}]]</td>
+				<td>[[${record.graduation}]]</td>
+			 	<td><a th:href="@{'edit_record/'+${record.id}}">編集</a></td>
+			 	<td><a th:href="@{'delete_record/'+${record.id}}">削除</a></td>
 			</tr>
 		</table>
+		</div>
 	</form>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
