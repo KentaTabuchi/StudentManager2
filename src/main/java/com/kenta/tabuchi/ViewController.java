@@ -1,5 +1,7 @@
 package com.kenta.tabuchi;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -17,6 +19,11 @@ public class ViewController {
 	@Autowired
 	StudentRepository repository;
 	
+	//|---------------------------------------------------------------------------------------
+	//|  GET method
+	//|---------------------------------------------------------------------------------------
+		
+	
 	@GetMapping
 	public ModelAndView index_get(ModelAndView view) {
 		view.addObject("recordSet", repository.findAll());
@@ -33,7 +40,7 @@ public class ViewController {
 	@GetMapping("delete_record/{id}")
 	public ModelAndView delete_record_get
 	(@PathVariable Long id, ModelAndView view) {
-		view.addObject("record",repository.findById(id));
+		view.addObject("record",repository.findById(id).get());
 		view.setViewName("delete_record");
 		return view;
 	}
@@ -45,7 +52,10 @@ public class ViewController {
 		view.setViewName("edit_record");
 		return view;
 	}
-	
+	//|---------------------------------------------------------------------------------------
+	//|  POST method
+	//|---------------------------------------------------------------------------------------
+		
 	@PostMapping("/add_record")
 	public ModelAndView add_record_post
 	(@ModelAttribute("formModel") @Validated Student student,BindingResult result,ModelAndView view) {
@@ -58,25 +68,5 @@ public class ViewController {
 		}
 		return view;
 	}
-//	@RequestMapping(value="/add_record",method=RequestMethod.POST)
-//	public ModelAndView form(
-//			@ModelAttribute("formModel") @Validated Student student,
-//			BindingResult result,
-//			ModelAndView mav)
-//	{
-//		ModelAndView adoptedMav = null;
-//		if(!result.hasErrors()) {
-//			M_StudentDao dao = new M_StudentDao(jdbc);
-//			dao.insert(student);
-//			try {
-//				Thread.sleep(WAIT_RESPONSE_TIME);//if here is not this,caused MySQL error.communication link failer.
-//			}catch(InterruptedException e) {e.printStackTrace();}
-//			adoptedMav = new ModelAndView("redirect:/");
-//		}else {
-//			mav.setViewName("add_record");
-//			adoptedMav = mav;
-//		}
-//		return adoptedMav;
-//	}
 
 }
