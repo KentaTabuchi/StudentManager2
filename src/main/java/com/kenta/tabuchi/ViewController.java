@@ -19,14 +19,26 @@ public class ViewController {
 		view.setViewName("index");
 		return view;
 	}
+	
 	@GetMapping("add_record")
 	public ModelAndView add_record_get(@ModelAttribute("formModel")Student student, ModelAndView view) {
 		view.setViewName("add_record");
 		return view;
 	}
-//	@RequestMapping(value="/add_record",method=RequestMethod.GET)
-//	public ModelAndView addRecord(@ModelAttribute("formModel")Student student,ModelAndView mav) {
-//		mav.setViewName("add_record");
+	
+	@GetMapping("delete_record")
+	public ModelAndView delete_record_get(@ModelAttribute("formModel")Student student,ModelAndView view) {
+		view.setViewName("delete_record");
+		return view;
+	}
+//	@RequestMapping(value="/delete_record",method=RequestMethod.GET)
+//	public ModelAndView deleteRecord(
+//			ModelAndView mav) {
+//		mav.setViewName("delete_record");
+//		M_StudentDao dao = new M_StudentDao(jdbc);
+//		Iterable<Student> list = dao.findAll();
+//		mav.addObject("recordSet", list);
 //		return mav;
 //	}
+
 }
