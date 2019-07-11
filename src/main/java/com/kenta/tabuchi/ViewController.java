@@ -48,7 +48,7 @@ public class ViewController {
 	public ModelAndView edit_record_get
 	(@ModelAttribute("formModel")Student student,@PathVariable Long id,ModelAndView view) {
 		
-		view.addObject("record",repository.findById(id));
+		view.addObject("record",repository.findById(id).get());
 		view.setViewName("edit_record");
 		return view;
 	}
