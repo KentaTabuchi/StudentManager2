@@ -29,8 +29,12 @@
 				<td class="list-table__table-data">[[${record.email}]]</td>
 				<td class="list-table__table-data">[[${record.address}]]</td>
 				<td class="list-table__table-data">[[${record.graduation}]]</td>
-				<td><input type="button" onclick="location.href='edit_record'" value="編集" class="container__btn"></td>
-				<td><input type="button" onclick="location.href='delete_record'" value="削除" class="container__btn">
+				
+			 	<td><a th:href="@{'edit_record/'+${record.id}}">編集</a></td>
+				<td><input type="button" th:onclick ="@{'location.href='edit_record/'+${record.id}}" value="編集" class="container__btn"></td>
+				<td><input type="button" onclick="location.href='delete_record/'[[${record.id}]]" value="削除" class="container__btn">
+				"location.href='edit_record'/[[${record.id}]]" 
+				"location.href='delete_record/'[[${record.id}]]" 
 			</tr>
 		</table>
 	</form>

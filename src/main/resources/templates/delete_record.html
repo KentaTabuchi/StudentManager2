@@ -9,7 +9,7 @@
 <h1 class="container__heading-1">削除確認</h1>
 以下のレコードを削除します。宜しいですか？
 
-<form method="post" action="/delete_comfirm" th:object="${formModel}">
+<form method="post" action="/delete_comfirm" th:object="${record}">
 	<table class="input-table__table">
 		<tr><th class="input-table__table-head"><p th:text ="|ID: *{id}|"></p></th>
 		<tr><td class="input-table__table-data"><p th:text ="|名前: *{name}|"></p></td>

@@ -7,16 +7,17 @@
 </head>
 <body  class="container__body">
 <h1 class="container__heading-1">編集</h1>
-<form method="post" action="/edit_form" th:object="${formModel}">
+<form method="post" action="/edit_form" th:object="${record}">
 	<table class="input-table__table">
-		
+		<!--  
 		<tr><th class="input-table__table-head">項目</th>
-			<th class="input-table__table-head">入力欄<input type="hidden" name="id" th:value="*{id}"/></th></tr>
+			<th class="input-table__table-head">入力欄<input type="hidden" name="id" th:value="${record.id}"/></th></tr>
 		<tr><td class="input-table__table-data">名前</td>
 			<td class="input-table__table-data"><input type="text" class="container__textbox" name="name" th:value="*{name}" th:errorclass="err"/>
 				<div th:if="${#fields.hasErrors('name')}" 
 				th:errors="*{name}" th:errorclass="err"></div></td>
 		</tr>
+		-->
 		<tr><td class="input-table__table-data">ふりがな</td>
 			<td class="input-table__table-data"><input type="text" class="container__textbox" name="namePhonetic" th:value="*{namePhonetic}" th:errorclass="err"/>
 				<div th:if="${#fields.hasErrors('namePhonetic')}" 
