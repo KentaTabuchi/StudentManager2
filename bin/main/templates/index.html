@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body  class="container__body">
+<h1>一覧</h1>
+<input type = "submit" value ="test">
+<input type="button" onclick="location.href='/add_record'" value="新規追加" class="container__btn">
+<a href="http://www.google.com">aaa</a>
+	<form>
+		<table class="list-table__table">
+			<tr>
+				<th class="list-table__table-head">生徒番号</th>
+				<th class="list-table__table-head">名前</th>
+				<th class="list-table__table-head">誕生日</th>
+				<th class="list-table__table-head">電話番号</th>
+				<th class="list-table__table-head">E-mail</th>
+				<th class="list-table__table-head">住所</th>
+				<th class="list-table__table-head">卒業年</th>
+				
+			</tr>
+			<tr th:each="record:${recordSet}">
+				<td class="list-table__table-data">[[${record.id}]]</td>
+				<td class="list-table__table-data">[[${record.name}]]</td>
+				<td class="list-table__table-data">[[${record.birthday}]]</td>
+				<td class="list-table__table-data">[[${record.phone}]]</td>
+				<td class="list-table__table-data">[[${record.email}]]</td>
+				<td class="list-table__table-data">[[${record.address}]]</td>
+				<td class="list-table__table-data">[[${record.graduation}]]</td>
+				<td><input type="button" onclick="location.href='edit_select'" value="編集" class="container__btn"></td>
+				<td><input type="button" onclick="location.href='delete_record'" value="削除" class="container__btn">
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
