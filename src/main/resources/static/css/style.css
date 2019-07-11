@@ -20,14 +20,14 @@
 }
 
 .container__btn {
-	font-size: 20px;
+	font-size: 15px;
 	border: 3px solid rgb(147, 162, 0);
 	background-color: rgba(147, 162, 0, 1);
 	color: #fff;
 }
 
 .container__btn:hover {
-	font-size: 20px;
+	font-size: 15px;
 	border: 3px solid rgb(147, 162, 0);
 	background-color: rgba(147, 162, 0, .0);
 	color: rgba(147, 162, 0, 1);
@@ -55,7 +55,6 @@
 	border-left: 1px solid #3c6690;
 	border-top: 1px solid #3c6690;
 	border-bottom: 1px solid #3c6690;
-	box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3) inset;
 	padding: 10px 0;
 }
 
@@ -73,7 +72,6 @@
 	border-left: 1px solid #a8b7c5;
 	border-bottom: 1px solid #a8b7c5;
 	border-top: none;
-	box-shadow: 0px -3px 5px 1px #eee inset;
 	padding: 10px 0;
 }
 
@@ -125,13 +123,19 @@
 	width: 70px; /*graduation column*/
 	text-align:center;
 }
-
+.list-table__table tr:nth-child(6) {
+	width: 70px; /*to edit_record button*/
+}
+.list-table__table tr:nth-child(7) {
+	width: 70px; /*to delete_record button*/
+}
 .list-table__table tr:nth-child(even) {
 	background: #FFFFCC;
 }
 .list-table__table tr:nth-child(odd) {
 	background: white;
 }
+
 .input-table__table {
 	border-collapse: separate;
 	border-spacing: 0;
@@ -163,7 +167,6 @@
 	border-left: 1px solid #a8b7c5;
 	border-bottom: 1px solid #a8b7c5;
 	border-top: none;
-	box-shadow: 0px -3px 5px 1px #eee inset;
 	padding: 10px 0;
 }
 

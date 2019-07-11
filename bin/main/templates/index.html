@@ -23,6 +23,8 @@
 				<th class="list-table__table-head">E-mail</th>
 				<th class="list-table__table-head">住所</th>
 				<th class="list-table__table-head">卒業年</th>
+				<th class="list-table__table-head">     </th>
+				<th class="list-table__table-head">     </th>
 				
 			</tr>
 			<tr th:each="record:${recordSet}">
@@ -34,8 +36,8 @@
 				<td class="list-table__table-data">[[${record.address}]]</td>
 				<td class="list-table__table-data">[[${record.graduation}]]</td>
 				
-			 	<td><a th:href="@{'edit_record/'+${record.id}}">編集</a></td>
-			 	<td><a th:href="@{'delete_record/'+${record.id}}">削除</a></td>
+			 	<td class="list-table__table-data"><a th:href="@{'edit_record/'+${record.id}}">編集</a></td>
+			 	<td class="list-table__table-data"><a th:href="@{'delete_record/'+${record.id}}">削除</a></td>
 
 			</tr>
 		</table>
