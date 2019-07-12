@@ -7,8 +7,7 @@
 
 "use strict";
   function OnSelectChange() {
-	alert("invoke");
     selindex = document.getElementById("SelectBox").selectedIndex;
-    document.location.href = "/?select_id="+selindex;
-    
+    if(!selindex==0)	
+    	document.location.href = "/?select_id="+selindex;
   }

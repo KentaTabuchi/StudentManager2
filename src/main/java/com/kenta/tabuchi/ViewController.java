@@ -1,8 +1,5 @@
 package com.kenta.tabuchi;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -12,8 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,11 +21,6 @@ public class ViewController {
 	//|  GET method
 	//|---------------------------------------------------------------------------------------
 		
-	//@RequestMapping(value= {"/","/{order}"},method=RequestMethod.GET)
-	//@RequestMapping(value= {"/","/{order}"},method=RequestMethod.GET)
-	//public ModelAndView indexGet(@RequestParam(name="order",required=false)Integer order,ModelAndView mav) {
-	//mav.setViewName("index");
-		
 	
 	@GetMapping(value= {"/","/{select_id}"})
 	public ModelAndView index_get
@@ -38,11 +28,11 @@ public class ViewController {
 	{
 		String key = null;
 		switch(select_id){
-			case 0: key = "id";   break;
-			case 1: key = "namePhonetic"; break;
-			case 2: key = "phone";break;
+			case 1: key = "id";   break;
+			case 2: key = "namePhonetic"; break;
+			case 3: key = "phone";break;
 		}
-
+		view.addObject("select_id",select_id);
 		view.addObject("recordSet",repository.findAll(new Sort(Sort.Direction.ASC,key)));
 		view.setViewName("index");
 		return view;
