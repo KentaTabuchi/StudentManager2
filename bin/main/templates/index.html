@@ -13,10 +13,16 @@
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
     <span class="navbar-toggler-icon"></span>
   </button>	
-		<input type="button" onclick="location.href='/add_record'" value="新規追加" class="btn btn-outline-primary">
-
+	<input type="button" onclick="location.href='/add_record'" value="新規追加" class="btn btn-outline-primary">
+	<div class="col-md-1">
+	<select name="selectOrder" class="form-control">
+		<option value="id">ID順</option>
+		<option value="name">名前順</option>
+		<option value="phone">電話番号順</option>
+	</select>
+	</div>
     <form class="form-inline my-2 my-lg-0">
-      <input type="search" class="form-control mr-sm-2" placeholder="検索..." aria-label="検索...">
+      <input type="search" class="form-control mr-sm-2" placeholder="検索は未実装..." aria-label="検索...">
       <button type="submit" class="btn btn-outline-success my-2 my-sm-0">検索</button>
     </form>
 </nav>
