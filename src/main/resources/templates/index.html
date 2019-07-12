@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script type="text/javascript" src="js/index.js" th:href="@{/js/index.js}"></script>
 <meta charset="UTF-8">
 <title>生徒情報管理</title>
 </head>
@@ -13,12 +14,21 @@
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
     <span class="navbar-toggler-icon"></span>
   </button>	
-		<input type="button" onclick="location.href='/add_record'" value="新規追加" class="btn btn-outline-primary">
+	<input type="button" onclick="location.href='/add_record'" value="新規追加" class="btn btn-outline-primary">
+	<div class="col-md-1">
+	
+	<select class="form-control" id="SelectBox" onchange="OnSelectChange();" >
+		<option>ID順</option>
+		<option>名前順</option>
+		<option>電話番号順</option>
+	</select>
 
+	</div>
     <form class="form-inline my-2 my-lg-0">
-      <input type="search" class="form-control mr-sm-2" placeholder="検索..." aria-label="検索...">
+      <input type="search" class="form-control mr-sm-2" placeholder="検索は未実装..." aria-label="検索...">
       <button type="submit" class="btn btn-outline-success my-2 my-sm-0">検索</button>
     </form>
+    <input type="button" onclick="test()" value="js接続確認テスト" class="ml-5">
 </nav>
 	
 	<form >
