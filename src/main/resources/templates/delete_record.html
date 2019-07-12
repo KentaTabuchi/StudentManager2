@@ -10,14 +10,31 @@
 以下のレコードを削除します。宜しいですか？
 
 <form method="post" action="/delete_record" th:object="${record}">
-	<table class="input-table__table">
-		<tr><th class="input-table__table-head"><p th:text ="|ID: *{id}|"></p></th>
-		<tr><td class="input-table__table-data"><p th:text ="|名前: *{name}|"></p></td>
-		<tr><td class="input-table__table-data"><p th:text ="|誕生日: *{birthday}|"></p></td>
-		<tr><td class="input-table__table-data"><p th:text ="|E-mail: *{email}|"></p></td>
-		<tr><td class="input-table__table-data"><p th:text ="|住所: *{address}|"></p></td>
-		<tr><td class="input-table__table-data"><p th:text ="|卒業年: *{graduation}|"></p></td>
-	</table>
+	<div class="form-group">
+		<label for="PrintId">ID</label>
+		<p class="form-control" id="InputName" th:text ="|*{id}|"></p>
+	</div>
+	<div class="form-group">
+		<label for="PrintName">名前</label>
+		<p class="form-control" id="InputName" th:text ="|*{name}|"></p>
+	</div>
+	<div class="form-group">
+		<label for="PrintBirthday">誕生日</label>
+		<p class="form-control" id="InputName" th:text ="|*{birthday}|"></p>
+	</div>
+	<div class="form-group">
+		<label for="PrintE-mail">E-mail</label>
+		<p class="form-control" id="InputName" th:text ="|*{email}|"></p>
+	</div>
+	<div class="form-group">
+		<label for="address">住所</label>
+		<p class="form-control" id="InputName" th:text ="|*{address}|"></p>
+	</div>
+	<div class="form-group">
+		<label for="graduation">卒業年</label>
+		<p class="form-control" id="InputName" th:text ="|*{graduation}|"></p>
+	</div>
+
 	<input type="hidden" th:value="*{id}" name="id" class="container__btn">
 	<input type="submit" value="削除" class="container__btn"/>
 	<input type="button" value="中止" onclick="location.href='/'" class="container__btn">
