@@ -7,7 +7,11 @@
 </head>
 <body  class="container__body">
 <h1>生徒情報管理</h1>
-<form method="post" action="/edit_record" th:object="${record}">
+ 
+ <div class="card w-25 mx-auto">
+ <div class="card-header">削除内容</div>
+ <div class="card-body">
+ <form method="post" action="/edit_record" th:object="${record}">
 	<input type="hidden" name="id" th:value="*{id}"/>
 	<div class="form-group">
 		<label for="InputName">名前</label>
@@ -24,7 +28,7 @@
 	<div class="form-group">
 		<label for="InputBirthday">誕生日</label>
 		<input type="text" class="form-control" id="InputBirthday" placeholder="誕生日を入力してください" 
-		name="namePhonetic" th:value="*{birthday}" th:errorclass="err">
+		name="birthday" th:value="*{birthday}" th:errorclass="err">
 		<div th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}" th:errorclass="err"></div>
 	</div>
 	<div class="form-group">
@@ -33,31 +37,30 @@
 		name="phone" th:value="*{phone}" th:errorclass="err">
 		<div th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" th:errorclass="err"></div>
 	</div>
-	<table class="input-table__table">
-		
-		<tr><th class="input-table__table-head">項目</th>
-			<th class="input-table__table-head"></th></tr>
-		<tr><td class="input-table__table-data">E-mail</td>
-			<td class="input-table__table-data"><input type="text" class="container__textbox" name="email" th:value="*{email}" th:errorclass="err"/>
-			<div th:if="${#fields.hasErrors('email')}"
-			th:errors="*{email}" th:errorclass="email"></div>
-			</td>
-		</tr>
-		<tr><td class="input-table__table-data">住所</td>
-			<td class="input-table__table-data"><input type="text" class="container__textbox" name="address" th:value="*{address}" th:errorclass="err"/>
-			<div th:if="${#fields.hasErrors('address')}"
-			th:errors="*{address}" th:errorclass="address"></div>
-			</td>
-		</tr>
-		<tr><td class="input-table__table-data">卒業年</td>
-			<td class="input-table__table-data"><input type="text" class="container__textbox" name="graduation" th:value="*{graduation}" th:errorclass="err"/>
-			<div th:if="${#fields.hasErrors('graduation')}"
-			th:errors="*{graduation}" th:errorclass="graduation"></div>
-			</td>
-		</tr>
-	</table>
-	<input type="submit" value="データを更新" class="container__btn"/>
-</form>
+	<div class="form-group">
+		<label for="InputEmail">E-mail</label>
+		<input type="text" class="form-control" id="InputEmail" placeholder="メールアドレスを入力してください" 
+		name="email" th:value="*{email}" th:errorclass="err">
+		<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="err"></div>
+	</div>
+	<div class="form-group">
+		<label for="InputAddress">住所</label>
+		<input type="text" class="form-control" id="InputAddress" placeholder="メールアドレスを入力してください" 
+		name="address" th:value="*{address}" th:errorclass="err">
+		<div th:if="${#fields.hasErrors('address')}" th:errors="*{address}" th:errorclass="err"></div>
+	</div>
+	<div class="form-group">
+		<label for="InputGraduation">卒業年</label>
+		<input type="text" class="form-control" id="InputGraduation" placeholder="メールアドレスを入力してください" 
+		name="graduation" th:value="*{graduation}" th:errorclass="err">
+		<div th:if="${#fields.hasErrors('graduation')}" th:errors="*{graduation}" th:errorclass="err"></div>
+	</div>
+	<input type="submit" value="更新" class="btn btn-outline-primary"/>
+	<input type="button" onclick="location.href='/'" value="中止" class="btn btn-outline-secondary" />
+	
+ </form>
+ </div>
+ </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
