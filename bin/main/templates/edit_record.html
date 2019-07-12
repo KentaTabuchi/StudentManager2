@@ -22,26 +22,21 @@
 		<div th:if="${#fields.hasErrors('namePhonetic')}" th:errors="*{namePhonetic}" th:errorclass="err"></div>
 	</div>
 	<div class="form-group">
-		<label for="InputPhonetic">誕生日</label>
-		<input type="text" class="form-control" id="birthday" placeholder="ふりがなを入力してください" 
+		<label for="InputBirthday">誕生日</label>
+		<input type="text" class="form-control" id="InputBirthday" placeholder="誕生日を入力してください" 
 		name="namePhonetic" th:value="*{birthday}" th:errorclass="err">
 		<div th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}" th:errorclass="err"></div>
+	</div>
+	<div class="form-group">
+		<label for="InputPhone">電話番号</label>
+		<input type="text" class="form-control" id="InputPhone" placeholder="電話番号を入力してください" 
+		name="phone" th:value="*{phone}" th:errorclass="err">
+		<div th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" th:errorclass="err"></div>
 	</div>
 	<table class="input-table__table">
 		
 		<tr><th class="input-table__table-head">項目</th>
 			<th class="input-table__table-head"></th></tr>
-		
-		<tr><td class="input-table__table-data">誕生日</td>
-			<td class="input-table__table-data"><input type="text" class="container__textbox" name="birthday" th:value="*{birthday}" th:errorclass="err"/>
-			<div th:if="${#fields.hasErrors('birthday')}"
-			th:errors="*{birthday}" th:errorclass="err"></div></td>
-		</tr>
-		<tr><td class="input-table__table-data">電話番号</td>
-			<td class="input-table__table-data"><input type="text" class="container__textbox" name="phone" th:value="*{phone}" th:errorclass="err"/>
-			<div th:if="${#fields.hasErrors('phone')}"
-			th:errors="*{phone}" th:errorclass="err"></div></td>
-		</tr>
 		<tr><td class="input-table__table-data">E-mail</td>
 			<td class="input-table__table-data"><input type="text" class="container__textbox" name="email" th:value="*{email}" th:errorclass="err"/>
 			<div th:if="${#fields.hasErrors('email')}"
