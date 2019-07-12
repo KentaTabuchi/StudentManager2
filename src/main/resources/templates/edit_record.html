@@ -3,26 +3,35 @@
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <meta charset="UTF-8">
-<title>編集</title>
+<title>生徒情報管理</title>
 </head>
 <body  class="container__body">
-<h1 class="container__heading-1">編集</h1>
+<h1>生徒情報管理</h1>
 <form method="post" action="/edit_record" th:object="${record}">
+	<input type="hidden" name="id" th:value="*{id}"/>
+	<div class="form-group">
+		<label for="InputName">名前</label>
+		<input type="text" class="form-control" id="InputName" placeholder="名前を入力してください" 
+		name="name" th:value="*{name}" th:errorclass="err">
+		<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="err"></div>
+	</div>
+		<div class="form-group">
+		<label for="InputPhonetic">ふりがな</label>
+		<input type="text" class="form-control" id="InputPhonetic" placeholder="ふりがなを入力してください" 
+		name="namePhonetic" th:value="*{namePhonetic}" th:errorclass="err">
+		<div th:if="${#fields.hasErrors('namePhonetic')}" th:errors="*{namePhonetic}" th:errorclass="err"></div>
+	</div>
+	<div class="form-group">
+		<label for="InputPhonetic">誕生日</label>
+		<input type="text" class="form-control" id="birthday" placeholder="ふりがなを入力してください" 
+		name="namePhonetic" th:value="*{birthday}" th:errorclass="err">
+		<div th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}" th:errorclass="err"></div>
+	</div>
 	<table class="input-table__table">
 		
 		<tr><th class="input-table__table-head">項目</th>
-			<th class="input-table__table-head">入力欄<input type="hidden" name="id" th:value="*{id}"/></th></tr>
-		<tr><td class="input-table__table-data">名前</td>
-			<td class="input-table__table-data"><input type="text" class="container__textbox" name="name" th:value="*{name}" th:errorclass="err"/>
-				<div th:if="${#fields.hasErrors('name')}" 
-				th:errors="*{name}" th:errorclass="err"></div></td>
-		</tr>
+			<th class="input-table__table-head"></th></tr>
 		
-		<tr><td class="input-table__table-data">ふりがな</td>
-			<td class="input-table__table-data"><input type="text" class="container__textbox" name="namePhonetic" th:value="*{namePhonetic}" th:errorclass="err"/>
-				<div th:if="${#fields.hasErrors('namePhonetic')}" 
-				th:errors="*{namePhonetic}" th:errorclass="err"></div></td>
-		</tr>
 		<tr><td class="input-table__table-data">誕生日</td>
 			<td class="input-table__table-data"><input type="text" class="container__textbox" name="birthday" th:value="*{birthday}" th:errorclass="err"/>
 			<div th:if="${#fields.hasErrors('birthday')}"
