@@ -5,22 +5,10 @@
 	  alert("index.jsの読み込みに成功");
   }
 
-
+"use strict";
   function OnSelectChange() {
 	alert("invoke");
     selindex = document.getElementById("SelectBox").selectedIndex;
-    switch (selindex) {
-      case 0:
-        alert(0);
-        document.location.href = "/"+selindex;
-        break;
-      case 1:
-        alert(1);
-        document.location.href = "/"+selindex;
-        break;
-      case 2:
-        alert(2);
-        break;
-
-    }
+    document.location.href = "/"+selindex;
+    
   }
