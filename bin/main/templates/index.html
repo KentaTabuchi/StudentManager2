@@ -6,13 +6,14 @@
 <title>Insert title here</title>
 </head>
 
-<body  class="container__body">
+<body>
 
 	<h1>生徒管理</h1>
+	<div class="w-75 mx-auto">
 	<input type="button" onclick="location.href='/add_record'" value="新規追加" class="btn btn-outline-primary">
-	
+	</div>
 	<form>
-		<div class="card">
+		<div class="card w-75 mx-auto">
 		<div class="card-header">生徒一覧</div>
 		<table class="table table-striped table-hover table-sm">
 			<tr>
@@ -23,8 +24,8 @@
 				<th>E-mail</th>
 				<th>住所</th>
 				<th>卒業年</th>
-				<th>     </th>
-				<th>     </th>
+				<th><!--編集ボタン--></th>
+				<th><!--削除ボタン --></th>
 				
 			</tr>
 			<tr th:each="record:${recordSet}">
