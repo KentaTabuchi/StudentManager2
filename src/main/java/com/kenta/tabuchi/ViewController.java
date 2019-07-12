@@ -25,8 +25,10 @@ public class ViewController {
 	//|  GET method
 	//|---------------------------------------------------------------------------------------
 		
+	//@RequestMapping(value= {"/","/{order}"},method=RequestMethod.GET)
+			
 	
-	@GetMapping("/")
+	@GetMapping(value= {"/","/{select}"})
 	public ModelAndView index_get(ModelAndView view) 
 	{
 		view.addObject("recordSet", repository.findAll());
