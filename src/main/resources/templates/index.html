@@ -40,7 +40,7 @@
 			<tr>
 				<th>生徒番号</th>
 				<th>名前</th>
-			
+				<th>ふりがな</th>
 				<th>誕生日</th>
 				<th>電話番号</th>
 				<th>E-mail</th>
@@ -53,7 +53,7 @@
 			<tr th:each="record:${recordSet}">
 				<td>[[${record.id}]]</td>
 				<td>[[${record.name}]]</td>
-			
+				<td>[[${record.name_phonetic}]]</td>
 				<td>[[${record.birthday}]]</td>
 				<td>[[${record.phone}]]</td>
 				<td>[[${record.email}]]</td>

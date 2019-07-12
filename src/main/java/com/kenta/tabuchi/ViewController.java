@@ -29,7 +29,7 @@ public class ViewController {
 		String key = null;
 		switch(select_id){
 			case 1: key = "id";   			break;
-			case 2: key = "namePhonetic"; 	break;
+			case 2: key = "name_phonetic"; 	break;
 			case 3: key = "birthday";		break;
 			case 4: key = "phone";			break;
 			case 5: key = "graduation";		break;
