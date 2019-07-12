@@ -6,9 +6,12 @@
 <title>学生名簿</title>
 </head>
 <body>
-<h1>新規登録</h1>
+<h1>生徒管理</h1>
 
-<form method="post" action="add_record" th:object="${formModel}">
+<div class="card w-25 mx-auto">
+ <div class="card-header">新規登録</div>
+ <div class="card-body">
+<form method="post" action="add_record" th:object="${formModel}" >
 	<div class="form-group">
 		<label for="InputName">名前</label>
 		<input type="text" class="form-control" id="InputName" placeholder="名前を入力してください" 
@@ -53,8 +56,11 @@
 		<div th:if="${#fields.hasErrors('graduation')}" th:errors="*{graduation}" th:errorclass="err"></div>
 	</div>	
 	
-	<input type="submit" value="この内容でデータを追加" class="container__btn" />
+	<input type="submit" value="この内容でデータを追加" class="btn btn-outline-primary" />
+	<input type="button" onclick="location.href='/'" value=キャンセルして戻る class="btn btn-outline-secondary" />
 </form>
+</div>
+</div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
