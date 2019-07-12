@@ -9,6 +9,6 @@
   function OnSelectChange() {
 	alert("invoke");
     selindex = document.getElementById("SelectBox").selectedIndex;
-    document.location.href = "/"+selindex;
+    document.location.href = "/?select_id="+selindex;
     
   }

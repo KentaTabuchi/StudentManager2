@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -26,12 +27,23 @@ public class ViewController {
 	//|---------------------------------------------------------------------------------------
 		
 	//@RequestMapping(value= {"/","/{order}"},method=RequestMethod.GET)
-			
+	//@RequestMapping(value= {"/","/{order}"},method=RequestMethod.GET)
+	//public ModelAndView indexGet(@RequestParam(name="order",required=false)Integer order,ModelAndView mav) {
+	//mav.setViewName("index");
+		
 	
-	@GetMapping(value= {"/","/{select}"})
-	public ModelAndView index_get(ModelAndView view) 
+	@GetMapping(value= {"/","/{select_id}"})
+	public ModelAndView index_get
+	(@RequestParam(name="select_id",required=false)Integer select_id,ModelAndView view) 
 	{
-		view.addObject("recordSet", repository.findAll());
+		String key = null;
+		switch(select_id){
+			case 0: key = "id";   break;
+			case 1: key = "namePhonetic"; break;
+			case 2: key = "phone";break;
+		}
+
+		view.addObject("recordSet",repository.findAll(new Sort(Sort.Direction.ASC,key)));
 		view.setViewName("index");
 		return view;
 	}
