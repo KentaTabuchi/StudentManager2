@@ -20,7 +20,9 @@
 		<option>並び替え</option>
 		<option>ID順</option>
 		<option>名前順</option>
+		<option>誕生日</option>
 		<option>電話番号順</option>
+		<option>卒業年</option>
 	</select>
 
 	</div>
@@ -38,6 +40,7 @@
 			<tr>
 				<th>生徒番号</th>
 				<th>名前</th>
+			
 				<th>誕生日</th>
 				<th>電話番号</th>
 				<th>E-mail</th>
@@ -50,6 +53,7 @@
 			<tr th:each="record:${recordSet}">
 				<td>[[${record.id}]]</td>
 				<td>[[${record.name}]]</td>
+			
 				<td>[[${record.birthday}]]</td>
 				<td>[[${record.phone}]]</td>
 				<td>[[${record.email}]]</td>

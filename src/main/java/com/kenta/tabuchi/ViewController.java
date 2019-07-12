@@ -28,9 +28,11 @@ public class ViewController {
 	{
 		String key = null;
 		switch(select_id){
-			case 1: key = "id";   break;
-			case 2: key = "namePhonetic"; break;
-			case 3: key = "phone";break;
+			case 1: key = "id";   			break;
+			case 2: key = "namePhonetic"; 	break;
+			case 3: key = "birthday";		break;
+			case 4: key = "phone";			break;
+			case 5: key = "graduation";		break;
 		}
 		view.addObject("select_id",select_id);
 		view.addObject("recordSet",repository.findAll(new Sort(Sort.Direction.ASC,key)));
