@@ -11,55 +11,55 @@
 </nav>
 
 <div class="card w-25 mx-auto">
- <div class="card-header">新規登録</div>
+ <div class="card-header"><h3>新規登録</h3></div>
  <div class="card-body">
 <form method="post" action="add_record" th:object="${formModel}" >
 	<div class="form-group">
-		<label for="InputName">名前</label>
+		<label for="InputName"><strong>名前</strong></label>
 		<input type="text" class="form-control" id="InputName" placeholder="名前を入力してください" 
 		name="name" th:value="*{name}" th:errorclass="err">
 		<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="err"></div>
 	</div>
 	<div class="form-group">
-		<label for="Inputroma">ローマ字</label>
+		<label for="Inputroma"><strong>ローマ字</strong></label>
 		<input type="text" class="form-control" id="Inputroma" placeholder="ふりがなをローマ字で入力してください" 
 		name="roma" th:value="*{roma}" th:errorclass="err">
 		<div th:if="${#fields.hasErrors('roma')}" th:errors="*{roma}" th:errorclass="err"></div>
 	</div>
 	<div class="form-group">
-		<label for="InputBirthday">誕生日</label>
+		<label for="InputBirthday"><strong>誕生日</strong></label>
 		<input type="date" class="form-control" id="InputBirthday" placeholder="****-**-**" 
 		name="birthday" th:value="*{birthday}" th:errorclass="err">
 		<div th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}" th:errorclass="err"></div>
 	</div>
 		
 	<div class="form-group">
-		<label for="InputPhone">電話番号</label>
+		<label for="InputPhone"><strong>電話番号</strong></label>
 		<input type="text" class="form-control" id="InputPhone" placeholder="***-****-****"
 		name="phone" th:value="*{phone}" th:errorclass="err">
 		<div th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" th:errorclass="err"></div>
 	</div>
 		<div class="form-group">
-		<label for="InputE-mail">E-mail</label>
+		<label for="InputE-mail"><strong>E-mail</strong></label>
 		<input type="email" class="form-control" id="InputE-mail" placeholder="メールアドレスを入力してください。"
 		name="email" th:value="*{email}" th:errorclass="err">
 		<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="err"></div>
 	</div>
 	<div class="form-group">
-		<label for="InputE-mail">住所</label>
+		<label for="InputE-mail"><strong>住所</strong></label>
 		<input type="text" class="form-control" id="address" placeholder="住所を入力してください。"
 		name="address" th:value="*{address}" th:errorclass="err">
 		<div th:if="${#fields.hasErrors('address')}" th:errors="*{address}" th:errorclass="err"></div>
 	</div>	
 		<div class="form-group">
-		<label for="InputGraduation">卒業年</label>
+		<label for="InputGraduation"><strong>卒業年度</strong></label>
 		<input type="text" class="form-control" id="graduation" placeholder="住所を入力してください。"
 		name="graduation" th:value="*{graduation}" th:errorclass="err">
 		<div th:if="${#fields.hasErrors('graduation')}" th:errors="*{graduation}" th:errorclass="err"></div>
 	</div>	
 	
-	<input type="submit" value="この内容でデータを追加" class="btn btn-outline-primary" />
-	<input type="button" onclick="location.href='/'" value=キャンセルして戻る class="btn btn-outline-secondary" />
+	<input type="submit" value="登録" class="btn btn-outline-primary" />
+	<input type="button" onclick="location.href='/'" value=中止 class="btn btn-outline-secondary" />
 </form>
 </div>
 </div>
