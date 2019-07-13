@@ -28,7 +28,7 @@
 	</div>
 	<div class="form-group">
 		<label for="InputBirthday" class="lead">誕生日</label>
-		<input type="text" class="form-control" id="InputBirthday" placeholder="誕生日を入力してください" 
+		<input type="date" class="form-control" id="InputBirthday" placeholder="誕生日を入力してください" 
 		name="birthday" th:value="*{birthday}" th:errorclass="err">
 		<div th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}" th:errorclass="err"></div>
 	</div>
