@@ -35,9 +35,10 @@
 		<option>卒業年</option>
 	</select>
 	</div>
-    <form class="form-inline my-2 my-lg-0">
-      <input type="search" class="form-control mr-sm-2" placeholder="検索は未実装..." aria-label="検索...">
-      <button type="submit" class="btn btn-outline-success my-2 my-sm-0">検索</button>
+    <form class="form-inline">
+      <input type="text" class="form-control" placeholder="検索は未実装..." aria-label="検索...">
+      <input type="button" class="btn btn-outline-success my-2 my-sm-0"
+       onclick="OnButtonClick()" value="絞り込み">
     </form>
     <input type="button" onclick="test()" value="js接続確認テスト" class="ml-5">
 </nav>
