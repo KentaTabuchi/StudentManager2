@@ -21,23 +21,32 @@ public class ViewController {
 	//|  GET method
 	//|---------------------------------------------------------------------------------------
 		
-	
 	@GetMapping(value= {"/","/{select_id}"})
 	public ModelAndView index_get
 	(@RequestParam(name="select_id",required=false)Integer select_id,ModelAndView view) 
 	{
-		String key = null;
+		
+		String key = "id";
+		try {
 		switch(select_id){
-			case 1: key = "id";   			break;
-			case 2: key = "name_phonetic"; 	break;
-			case 3: key = "birthday";		break;
-			case 4: key = "phone";			break;
-			case 5: key = "graduation";		break;
+		case 0: key = "id";
+		case 1: 	 		   			break;
+		case 2: key = "name_phonetic"; 	break;
+		case 3: key = "birthday";		break;
+		case 4: key = "phone";			break;
+		case 5: key = "graduation";		break;
 		}
+		
+		
 		view.addObject("select_id",select_id);
 		view.addObject("recordSet",repository.findAll(new Sort(Sort.Direction.ASC,key)));
-		view.setViewName("index");
+		view.setViewName("/index");
 		return view;
+		}catch(NullPointerException e){
+
+			return new ModelAndView("redirect:/?select_id=1");
+		}
+		
 	}
 	
 	@GetMapping("add_record")
