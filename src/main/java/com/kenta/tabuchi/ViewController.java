@@ -32,9 +32,7 @@ public class ViewController {
 			ModelAndView view) 
 	{
 		if(find_text!=null) {
-			List<Student> list = new ArrayList<Student>();
-			list.add(repository.findById(Long.valueOf(find_text)).get());
-			view.addObject("recordSet",list);
+			view.addObject("recordSet",repository.findAllById(Long.valueOf(find_text)));
 			view.addObject("test", find_text);
 			view.setViewName("index");
 			return view;
