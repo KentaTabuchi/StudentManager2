@@ -1,5 +1,8 @@
 package com.kenta.tabuchi;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -29,7 +32,10 @@ public class ViewController {
 			ModelAndView view) 
 	{
 		if(find_text!=null) {
-			view.addObject(repository.findById(Long.valueOf(find_text)).get());
+			List<Student> list = new ArrayList<Student>();
+			list.add(repository.findById(Long.valueOf(find_text)).get());
+			view.addObject("recordSet",list);
+			view.addObject("test", find_text);
 			view.setViewName("index");
 			return view;
 		}else {
