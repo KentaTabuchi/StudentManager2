@@ -22,8 +22,11 @@ public class Student {
 	@NotNull
 	@Column
 	private String name;
+	/**
+	 * 
+	 */
 	@Column
-	private String name_phonetic;
+	private String roma;
 	@Column
 	@Pattern(regexp="....[-]..[-]..")
 	private String birthday;
@@ -81,12 +84,13 @@ public class Student {
 	public void setGraduation(String graduation) {
 		this.graduation = graduation;
 	}
-	public String getName_phonetic() {
-		return name_phonetic;
+	public String getRoma() {
+		return roma;
 	}
-	public void setName_phonetic(String name_phonetic) {
-		this.name_phonetic = name_phonetic;
+	public void setRoma(String roma) {
+		this.roma = roma;
 	}
+
 
 
 

@@ -29,9 +29,9 @@ public class ViewController {
 		String key = "id";
 		try {
 		switch(select_id){
-		case 0: key = "id";
-		case 1: 	 		   			break;
-		case 2: key = "name_phonetic"; 	break;
+		case 0: key = "id";						//|case 0 is not available selection. |
+		case 1: 	 		   			break;  //|so case 0 needs redirect to case 1.|
+		case 2: key = "roma"; 			break;
 		case 3: key = "birthday";		break;
 		case 4: key = "phone";			break;
 		case 5: key = "graduation";		break;
