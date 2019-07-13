@@ -27,13 +27,26 @@ public class ViewController {
 	@GetMapping(value= {"/","/{params}"})
 	public ModelAndView index_get
 	(@RequestParam(name="select_id",required=false)Integer select_id,
-	 @RequestParam(name="find_select",required=false)String find_select,
+	 @RequestParam(name="find_select",required=false)Integer find_select,
 	 @RequestParam(name="find_text",required=false)String find_text,
 			ModelAndView view) 
 	{
 		if(find_text!=null) {
-			view.addObject("recordSet",repository.findAllById(Long.valueOf(find_text)));
-			view.addObject("test", find_text);
+		List<Student> list = null;
+		String filter = "";
+		switch(find_select) {
+		case 0: list = repository.findAllById(Long.valueOf(find_text));filter="ID:"+find_text; break;
+		case 1: list = repository.findAllByNameLike(find_text);filter="名前:"+find_text;break;
+		case 2: list = repository.findAllByRomaLike(find_text);filter="ローマ字:"+find_text;break;
+		case 3: list = repository.findAllByBirthday(find_text);filter="誕生日:"+find_text;break;
+		case 4: list = repository.findAllByPhone(find_text);filter="電話番号:"+find_text;break;
+		case 5: list = repository.findAllByEmailLike(find_text);filter="E-mail:"+find_text;break;
+		case 6: list = repository.findAllByAddressLike(find_text);filter="住所:"+find_text;break;
+		case 7: list = repository.findAllByGraduation(find_text);filter="卒業年度"+find_text;break;
+		
+		}
+			view.addObject("filter_text","絞り込み条件："+filter);
+			view.addObject("recordSet",list);
 			view.setViewName("index");
 			return view;
 		}else {
