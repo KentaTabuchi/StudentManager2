@@ -15,7 +15,6 @@
   </button>	
 	<input type="button" onclick="location.href='/add_record'" value="新規追加" class="btn btn-outline-primary">
 	<div class="col-md-1">
-	
 	<select class="form-control" id="SelectBox" onchange="OnSelectChange();" >
 		<option>並び替え</option>
 		<option>ID順</option>
@@ -24,7 +23,17 @@
 		<option>電話番号順</option>
 		<option>卒業年</option>
 	</select>
-
+	</div>
+	<div class="col-md-1">
+	<select class="form-control" id="FindBox" >
+		<option>ID</option>
+		<option>名前</option>
+		<option>誕生日</option>
+		<option>電話番号</option>
+		<option>E-mail</option>
+		<option>住所</option>
+		<option>卒業年</option>
+	</select>
 	</div>
     <form class="form-inline my-2 my-lg-0">
       <input type="search" class="form-control mr-sm-2" placeholder="検索は未実装..." aria-label="検索...">
