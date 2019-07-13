@@ -21,8 +21,8 @@
 		<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="err"></div>
 	</div>
 	<div class="form-group">
-		<label for="Inputroma">ふりがな</label>
-		<input type="text" class="form-control" id="Inputroma" placeholder="ふりがなを入力してください" 
+		<label for="Inputroma">ローマ字</label>
+		<input type="text" class="form-control" id="Inputroma" placeholder="ふりがなをローマ字で入力してください" 
 		name="roma" th:value="*{roma}" th:errorclass="err">
 		<div th:if="${#fields.hasErrors('roma')}" th:errors="*{roma}" th:errorclass="err"></div>
 	</div>

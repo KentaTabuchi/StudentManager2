@@ -7,8 +7,12 @@
   function OnButton1Click(){
 	  select = document.getElementById("FindBox").selectedIndex;
 	  text = document.getElementById("FindText").value;
-	  url = "/?find_text="+text+"&find_select="+select;
-	  document.location.href = url;
+	  if(text==""){
+		  alert("絞り込み条件を入力してください。");
+	  }else{
+		  url = "/?find_text="+text+"&find_select="+select;
+		  document.location.href = url;
+	  }
   }
   function OnButton2Click(){
 	  document.location.href = "/?select_id="+1; // 1 means find all by id.
