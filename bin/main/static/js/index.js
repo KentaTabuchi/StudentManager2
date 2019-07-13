@@ -8,8 +8,12 @@
 	  alert("findButtonClick");
 	  select = document.getElementById("FindBox").selectedIndex;
 	  text = document.getElementById("FindText").value;
-	  alert(select);
-	  alert(text);
+	  url = "/?find_text="+text+"&find_select="+select;
+	  alert(url);
+	  document.location.href = url;
+	//	 @RequestParam(name="find_select,required=false")Integer find_select,
+	//	 @RequestParam(name="find_text,requred=false")String find_text,
+	  
   }
 "use strict";
   function OnSelectChange() {

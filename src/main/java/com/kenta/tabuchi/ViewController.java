@@ -21,10 +21,18 @@ public class ViewController {
 	//|  GET method
 	//|---------------------------------------------------------------------------------------
 		
-	@GetMapping(value= {"/","/{select_id}"})
+	@GetMapping(value= {"/","/{params}"})
 	public ModelAndView index_get
-	(@RequestParam(name="select_id",required=false)Integer select_id,ModelAndView view) 
+	(@RequestParam(name="select_id",required=false)Integer select_id,
+	 @RequestParam(name="find_select",required=false)String find_select,
+	 @RequestParam(name="find_text",required=false)String find_text,
+			ModelAndView view) 
 	{
+		if(find_text!=null) {
+			view.addObject(repository.findById(Long.valueOf(find_text)).get());
+			view.setViewName("index");
+			return view;
+		}else {
 		
 		String key = "id";
 		try {
@@ -46,7 +54,7 @@ public class ViewController {
 
 			return new ModelAndView("redirect:/?select_id=1");
 		}
-		
+		}
 	}
 	
 	@GetMapping("add_record")
