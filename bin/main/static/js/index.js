@@ -6,6 +6,10 @@
   }
   function OnButtonClick(){
 	  alert("findButtonClick");
+	  select = document.getElementById("FindBox").selectedIndex;
+	  text = document.getElementById("FindText").value;
+	  alert(select);
+	  alert(text);
   }
 "use strict";
   function OnSelectChange() {
