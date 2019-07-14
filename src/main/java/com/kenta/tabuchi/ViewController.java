@@ -3,6 +3,8 @@ package com.kenta.tabuchi;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -97,6 +100,14 @@ public class ViewController {
 		view.setViewName("edit_record");
 		return view;
 	}
+    /**
+     * This method downloads CSV file that contains all records form student table. 
+     */
+    @GetMapping("csvDownload")
+    public void csvDownload(HttpServletResponse response) {
+    	
+    	new CsvReader().exportCSV(response,repository);
+    }
 	//|---------------------------------------------------------------------------------------
 	//|  POST method
 	//|---------------------------------------------------------------------------------------
