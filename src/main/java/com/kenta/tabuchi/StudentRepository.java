@@ -1,14 +1,16 @@
 package com.kenta.tabuchi;
 
 import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
-		
-	public List<Student> findAllById(Long id);
+	
+	public Page<Student> findAll(Pageable pageable);
+ 	public List<Student> findAllById(Long id);
 	public List<Student> findAllByNameLike(String name);
 	public List<Student> findAllByRomaLike(String name);
 	public List<Student> findAllByBirthday(String birthday);
