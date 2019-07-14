@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -100,14 +102,20 @@ public class ViewController {
 		view.setViewName("edit_record");
 		return view;
 	}
-    /**
-     * This method downloads CSV file that contains all records form student table. 
-     */
-    @GetMapping("csvDownload")
-    public void csvDownload(HttpServletResponse response) {
+    
+    @GetMapping("export_csv")
+    public void export_csv(HttpServletResponse response) {
     	
     	new CsvReader().exportCSV(response,repository);
     }
+    
+    @GetMapping("import_csv")
+    public ModelAndView import_csv
+    (@RequestParam("upload_file")MultipartFile uploadFile) {
+    	new CsvReader().importCsv(uploadFile, repository);
+    	return new ModelAndView("redirect:/");
+    }
+    
 	//|---------------------------------------------------------------------------------------
 	//|  POST method
 	//|---------------------------------------------------------------------------------------

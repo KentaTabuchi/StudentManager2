@@ -23,7 +23,7 @@ public class CsvReader {
 	 * @param uploadFile
 	 * @param repository
 	 */
-	public void addTableFromCsv(MultipartFile uploadFile,StudentRepository repository) {
+	public void importCsv(MultipartFile uploadFile,StudentRepository repository) {
 	
 		List<String> lines=fileContents(uploadFile);
 		lines.forEach(line->{
