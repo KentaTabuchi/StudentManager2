@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -24,7 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class ViewController {
 	@Autowired
 	StudentRepository repository;
-	
+	private static final Logger logger = LoggerFactory.getLogger(ViewController.class);
 	//|---------------------------------------------------------------------------------------
 	//|  GET method
 	//|---------------------------------------------------------------------------------------
@@ -109,12 +111,6 @@ public class ViewController {
     	new CsvReader().exportCSV(response,repository);
     }
     
-    @GetMapping("import_csv")
-    public ModelAndView import_csv
-    (@RequestParam("upload_file")MultipartFile uploadFile) {
-    	new CsvReader().importCsv(uploadFile, repository);
-    	return new ModelAndView("redirect:/");
-    }
     
 	//|---------------------------------------------------------------------------------------
 	//|  POST method
@@ -153,6 +149,13 @@ public class ViewController {
 		return new ModelAndView("redirect:/");
 	}
 	
+    @PostMapping("import_csv")
+    public ModelAndView import_csv
+    (@RequestParam("upload_file")MultipartFile uploadFile) {
+    	logger.info("export_csv invoke.");
+    	new CsvReader().importCsv(uploadFile, repository);
+    	return new ModelAndView("redirect:/");
+    }
 
 	
 }

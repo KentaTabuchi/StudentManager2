@@ -17,7 +17,7 @@ import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 public class CsvReader {
-
+	private static final Logger logger = LoggerFactory.getLogger(CsvReader.class);
 	/**
 	 * This method adds record to database Table from CSV file that uploaded by user.
 	 * @param uploadFile
@@ -59,6 +59,7 @@ public class CsvReader {
 			result.add(data[4]);
 			result.add(data[5]);
 			result.add(data[6]);
+	
 		});
 		return result;
 	}
@@ -91,7 +92,8 @@ public class CsvReader {
 	
 	public void exportCSV(HttpServletResponse response,StudentRepository repository) {
         
-        response.setContentType(MimeTypeUtils.APPLICATION_OCTET_STREAM_VALUE + ";charset=shift-jis");
+        //response.setContentType(MimeTypeUtils.APPLICATION_OCTET_STREAM_VALUE + ";charset=shift-jis");
+		response.setContentType(MimeTypeUtils.APPLICATION_OCTET_STREAM_VALUE + ";charset=utf-8");
         response.setHeader("Content-Disposition", "attachment; filename=\"studentdirectory.csv\"");
        
         List<Student> list = repository.findAll();

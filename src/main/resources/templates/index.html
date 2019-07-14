@@ -36,12 +36,14 @@
 		<option>卒業年度</option>
 	</select>
 	</div>
-    <form class="form-inline">
+    <form class="form-inline" method="post" action="import_csv" enctype="multipart/form-data">
       <input type="text" class="form-control" id="FindText" placeholder="条件を入力してください。" >
       <input type="button" class="btn btn-outline-success my-2 my-sm-0"onclick="OnButton1Click()" value="絞り込み">
       <input type="button" class="btn btn-outline-danger my-2 my-sm-0"onclick="OnButton2Click()" value="解除">
-       <input type="button" class="btn btn-outline-secondary my-2 my-sm-0 ml-2" onclick="location.href='/import_csv'" value="CSV読み込み">
-      <input type="button" class="btn btn-outline-secondary my-2 my-sm-0" onclick="location.href='/export_csv'" value="CSV書き出し">
+      <input type="button" class="btn btn-outline-secondary my-2 my-sm-0 ml-3" onclick="location.href='/export_csv'" value="CSV書き出し">
+       <input type="submit" class="btn btn-outline-secondary my-2 my-sm-0 "  value="CSV読み込み">
+       <input type="file" class="btn btn-outline-secondary my-2 my-sm-0 " name="upload_file">
+      
     </form>
     <input type="button" onclick="test()" value="js接続確認テスト" class="ml-5">
 </nav>
