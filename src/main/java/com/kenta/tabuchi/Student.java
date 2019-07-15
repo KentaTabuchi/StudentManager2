@@ -19,14 +19,15 @@ public class Student {
 	@Id
 	@Column
 	private Long id;
+	@Column 
+	private Long no;
 	@NotNull
 	@Column
 	private String name;
-	/**
-	 * 
-	 */
 	@Column
 	private String roma;
+	@Column
+	private String sex;
 	@Column
 	@Pattern(regexp="....[-]..[-]..")
 	private String birthday;
@@ -37,7 +38,15 @@ public class Student {
 	@Email
 	private String email;
 	@Column
-	private String address;
+	private String postno;
+	@Column
+	private String address1;
+	@Column
+	private String address2;
+	@Column
+	private String address3;
+	@Column
+	private String address4;
 	@Column
 	@Range(min=1500,max=3000)
 	private String graduation;
