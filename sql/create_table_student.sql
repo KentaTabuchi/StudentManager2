@@ -5,6 +5,6 @@ roma varchar(20),
 birthday varchar(20),
 phone varchar(20),
 address varchar(50),
-email varchar(20),
+email varchar(50),
 graduation varchar(10)
 );
