@@ -29,13 +29,19 @@ public class CsvReader {
 		lines.forEach(line->{
 			Student student = new Student();
 			String[] data = line.split(",", -1);
-			student.setName(data[1]);
-			student.setRoma(data[2]);
-			student.setBirthday(data[3]);
-			student.setPhone(data[4]);
-			student.setEmail(data[5]);
-			student.setAddress(data[6]);
-			student.setGraduation(data[7]);
+			student.setNo(data[1]);
+			student.setName(data[2]);
+			student.setRoma(data[3]);
+			student.setSex(data[4]);
+			student.setPhone(data[5]);
+			student.setEmail(data[6]);
+			student.setPostno(data[7]);
+			student.setAddress1(data[8]);
+			student.setAddress2(data[9]);
+			student.setAddress3(data[10]);
+			student.setAddress4(data[11]);
+			student.setBirthday(data[12]);
+			student.setGraduation(data[13]);
 			repository.saveAndFlush(student);
 		});
 	}
@@ -59,7 +65,13 @@ public class CsvReader {
 			result.add(data[4]);
 			result.add(data[5]);
 			result.add(data[6]);
-	
+			result.add(data[7]);
+			result.add(data[8]);
+			result.add(data[9]);
+			result.add(data[10]);
+			result.add(data[11]);
+			result.add(data[12]);
+			result.add(data[13]);
 		});
 		return result;
 	}
@@ -103,22 +115,21 @@ public class CsvReader {
 			  final String comma=",";
 			  final String newline="\r\n";
 			  list.forEach(student->{
-				   sb.append(student.getId());
-				   sb.append(comma);
-				   sb.append(student.getName());
-				   sb.append(comma);
-				   sb.append(student.getRoma());
-				   sb.append(comma);
-				   sb.append(student.getBirthday());
-				   sb.append(comma);
-				   sb.append(student.getPhone());
-				   sb.append(comma);
-				   sb.append(student.getEmail());
-				   sb.append(comma);
-				   sb.append(student.getAddress());
-				   sb.append(comma);
-				   sb.append(student.getGraduation());
-				   sb.append(comma);
+				   sb.append(student.getId());sb.append(comma);
+				   sb.append(student.getNo());sb.append(comma);
+				   sb.append(student.getName());sb.append(comma);
+				   sb.append(student.getRoma());sb.append(comma);
+				   sb.append(student.getSex());sb.append(comma);
+				   sb.append(student.getPhone());sb.append(comma);
+				   sb.append(student.getEmail());sb.append(comma);
+				   sb.append(student.getPostno());sb.append(comma);
+				   sb.append(student.getAddress1());sb.append(comma);
+				   sb.append(student.getAddress2());sb.append(comma);
+				   sb.append(student.getAddress3());sb.append(comma);
+				   sb.append(student.getAddress4());sb.append(comma);
+				   sb.append(student.getBirthday());sb.append(comma);
+				   sb.append(student.getGraduation());sb.append(comma);
+				   
 				   sb.append(newline);
 			  });
 			  pw.print(sb.toString());  //write to CSV file;

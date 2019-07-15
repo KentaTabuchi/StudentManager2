@@ -20,7 +20,7 @@ public class Student {
 	@Column
 	private Long id;
 	@Column 
-	private Long no;
+	private String no;
 	@NotNull
 	@Column
 	private String name;
@@ -81,12 +81,7 @@ public class Student {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
+
 	public String getGraduation() {
 		return graduation;
 	}
@@ -98,6 +93,48 @@ public class Student {
 	}
 	public void setRoma(String roma) {
 		this.roma = roma;
+	}
+	public String getAddress1() {
+		return address1;
+	}
+	public void setAddress1(String address1) {
+		this.address1 = address1;
+	}
+	public String getNo() {
+		return no;
+	}
+	public void setNo(String no) {
+		this.no = no;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	public String getPostno() {
+		return postno;
+	}
+	public void setPostno(String postno) {
+		this.postno = postno;
+	}
+	public String getAddress2() {
+		return address2;
+	}
+	public void setAddress2(String address2) {
+		this.address2 = address2;
+	}
+	public String getAddress3() {
+		return address3;
+	}
+	public void setAddress3(String address3) {
+		this.address3 = address3;
+	}
+	public String getAddress4() {
+		return address4;
+	}
+	public void setAddress4(String address4) {
+		this.address4 = address4;
 	}
 
 
