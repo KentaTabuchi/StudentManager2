@@ -43,12 +43,12 @@ public class ViewController {
 		String filter = "";
 		switch(find_select) {
 		case 0: list = repository.findAllById(Long.valueOf(find_text));filter="ID:"+find_text; break;
-		case 1: list = repository.findAllByNameLike(find_text);filter="名前:"+find_text;break;
-		case 2: list = repository.findAllByRomaLike(find_text);filter="ローマ字:"+find_text;break;
+		case 1: list = repository.findAllByNameLike("%"+find_text+"%");filter="名前:"+find_text;break;
+		case 2: list = repository.findAllByRomaLike("%"+find_text+"%");filter="ローマ字:"+find_text;break;
 		case 3: list = repository.findAllByBirthday(find_text);filter="誕生日:"+find_text;break;
 		case 4: list = repository.findAllByPhone(find_text);filter="電話番号:"+find_text;break;
-		case 5: list = repository.findAllByEmailLike(find_text);filter="E-mail:"+find_text;break;
-		case 6: list = repository.findAllByAddressLike(find_text);filter="住所:"+find_text;break;
+		case 5: list = repository.findAllByEmailLike("%"+find_text+"%");filter="E-mail:"+find_text;break;
+		case 6: list = repository.findAllByAddressLike("%"+find_text+"%");filter="住所:"+find_text;break;
 		case 7: list = repository.findAllByGraduation(find_text);filter="卒業年度"+find_text;break;
 		
 		}

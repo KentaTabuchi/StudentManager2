@@ -9,7 +9,11 @@
 	  text = document.getElementById("FindText").value;
 	  if(text==""){
 		  alert("絞り込み条件を入力してください。");
-	  }else{
+	  }else if(select==0 && isNaN(text)){
+		alert("IDは数字で指定してください。")  
+	  }
+	  else{
+		  
 		  url = "/?find_text="+text+"&find_select="+select;
 		  document.location.href = url;
 	  }
