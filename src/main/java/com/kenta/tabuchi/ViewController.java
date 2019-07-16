@@ -72,11 +72,11 @@ public class ViewController {
 		
 		view.addObject("select_id",select_id);
 		view.addObject("recordSet",repository.findAll(new Sort(Sort.Direction.ASC,key)));
-		view.setViewName("/index");
+		view.setViewName("index");
 		return view;
 		}catch(NullPointerException e){
 
-			return new ModelAndView("redirect:/?select_id=1");
+			return new ModelAndView("redirect:?select_id=1");
 		}
 		}
 	}
@@ -122,7 +122,7 @@ public class ViewController {
 	{	
 		if(!result.hasErrors()) {
 			repository.saveAndFlush(student);
-			return new ModelAndView("redirect:/");
+			return new ModelAndView("redirect:");
 		}else {
 			view.setViewName("add_record");
 			return view;
@@ -134,7 +134,7 @@ public class ViewController {
 	{
 		if(!result.hasErrors()) {
 		repository.saveAndFlush(student);
-		return new ModelAndView("redirect:/");
+		return new ModelAndView("redirect:");
 		}else {
 			view.setViewName("edit_record");
 			return view;
@@ -146,7 +146,7 @@ public class ViewController {
 	(@RequestParam("id")Long id) 
 	{
 		repository.deleteById(id);
-		return new ModelAndView("redirect:/");
+		return new ModelAndView("redirect:");
 	}
 	
     @PostMapping("import_csv")
@@ -154,7 +154,7 @@ public class ViewController {
     (@RequestParam("upload_file")MultipartFile uploadFile) {
     	logger.info("export_csv invoke.");
     	new CsvReader().importCsv(uploadFile, repository);
-    	return new ModelAndView("redirect:/");
+    	return new ModelAndView("redirect:");
     }
 
 	
